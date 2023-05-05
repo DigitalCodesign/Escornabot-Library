@@ -64,6 +64,8 @@ A continuación, mostramos los métodos disponibles en nuestra instancia que pod
 | :-------- | :------- | :------------------------- |
 | `Escornabot` | `distancia` | Constructor de la clase. Recibe la distancia que deseas recorrer en centímetros cuando el robot haga movimiento hacia adelante o atrás. |
 | `mover_robot` | `dirección` | Ejecuta el movimiento indicado con un número entero pasado como argumento; 1 para retroceder, 2 para girar a la derecha, 3 para avanzar y 4 para girar a la izquierda. |
+| `notifica_pulsador` | `LED, frecuencia, duración` | Emite un sonido al tiempo que enciende un LED en función del pulsador acionado. |
+| `tono_fin` | `frecuencia, duración del sonido, intervalo` | Emite una pequeña melodía con unas características dadas para indicar que ha terminado de ejecutar la secuencia de movimientos. |
 
 ## Ejemplos incluidos en la librería
 
