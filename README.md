@@ -1,7 +1,9 @@
 
 # Librería Escornabot
 
-Esta librería está construida para utilizar junto con el robot educacional Escornabot. Permite utilizar los distintos componentes del robot con varias funciones y ejemplos.
+Esta librería está construida por Digital Codesign para utilizar junto con el robot educacional Escornabot. Permite utilizar los distintos componentes del robot con varias funciones y ejemplos.
+
+Puedes encontrar nuestro Kit de Escornabot Singularis y mucho más material de electrónica y robótica en nuestra tienda oficial: https://digitalcodesign.com/shop
 
 ## Modo de empleo
 
