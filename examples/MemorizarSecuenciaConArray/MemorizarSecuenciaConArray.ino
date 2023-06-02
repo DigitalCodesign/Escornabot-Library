@@ -101,6 +101,8 @@ void loop() {
 
         }
 
+        indice_movimiento = 0;
+
     }
 
 }
