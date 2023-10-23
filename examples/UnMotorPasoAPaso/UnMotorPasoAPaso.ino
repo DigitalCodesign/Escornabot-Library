@@ -1,5 +1,6 @@
 /*
-    Ejemplo para comprobar el funcionamiento de los Motores paso a paso en el Escornabot
+  Ejemplo [UnMotorPasoAPaso.ino] para comprobar el funcionamiento de los
+  Motores paso a paso en el Escornabot
 */
 
 // Vamos a utilizar, por ejemplo, el motor derecho
@@ -10,15 +11,16 @@
 #define IN4_drcha 5
 
 /*
-    Debemos calcular los pasos que tiene que dar el motor para desplazarse 10 cm
-    Hay que mencionar dos datos importantes:
-        --> Para dar una vuelta son necesarios 512 pasos
-        --> El perímetro de la rueda son 23.56 cm
-    Por lo que para allar los pasos necesarios debemos hacer la siguiente conversión:
+  Debemos calcular los pasos que tiene que dar el motor para desplazarse
+  10 cm. Hay que mencionar dos datos importantes:
+      --> Para dar una vuelta son necesarios 512 pasos
+      --> El perímetro de la rueda son 23.56 cm
+  Por lo que para allar los pasos necesarios debemos hacer la siguiente
+  conversión:
 
-             1 vuelta     512 pasos
-    10 cm x ---------- x ------------ = 217 pasos para recorrer 10 cm.
-             23.56 cm      1 vuelta
+            1 vuelta     512 pasos
+  10 cm x ---------- x ------------ = 217 pasos para recorrer 10 cm.
+            23.56 cm      1 vuelta
 */
 
 int numero_pasos_para_avance = round((10 * 512) / 23.56);

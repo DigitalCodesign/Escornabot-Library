@@ -1,5 +1,6 @@
 /*
-    Ejemplo para comprobar el funcionamiento del zumbador en el Escornabot
+  Ejemplo [ Zumbador.ino ] para comprobar el funcionamiento del zumbador
+  en el Escornabot
 */
 
 // Incluimos la libreria con funciones y variables para Escornabot
@@ -7,8 +8,9 @@
 
 /*
     Inicializamos la clase en la variable de nombre Escornabot.
-    Como en este ejemplo no vamos a utilizar los motores, podemos pasar el argumento
-    para el constructor de la clase Escornabot con cualquier valor.
+    Como en este ejemplo no vamos a utilizar los motores, podemos
+    pasar el argumento para el constructor de la clase Escornabot
+    con cualquier valor.
 */
 Escornabot Escornabot(10);
 

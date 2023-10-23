@@ -1,5 +1,6 @@
 /*
-    Ejemplo para comprobar el funcionamiento de los Motores paso a paso en el Escornabot
+  Ejemplo [ MotoresConFunciones.ino ] para comprobar el funcionamiento
+  de los Motores paso a paso en el Escornabot
 */
 
 // Incluimos la libreria con funciones y variables para Escornabot

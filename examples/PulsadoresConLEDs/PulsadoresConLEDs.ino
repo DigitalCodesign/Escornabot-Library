@@ -1,76 +1,86 @@
-/*
-    Ejemplo para comprobar el funcionamiento de los pulsadores y los LEDs en el Escornabot
-*/
 
-// Incluimos la libreria con funciones y variables para Escornabot
-#include "Escornabot.h"
+// Se incluye la libreria necesaria
+#include <DHT.h>
 
-/*
-    Inicializamos la clase en la variable de nombre Escornabot.
-    Como en este ejemplo no vamos a utilizar los motores, podemos pasar el argumento
-    para el constructor de la clase Escornabot con cualquier valor.
-*/
-Escornabot Escornabot(10);
+// Definimos los pines de los diodos led
+#define Led_rojo 5
+#define Led_verde 6
+#define Led_rojo_rgb 8
+#define Led_verde_rgb 9
 
-// Rutina de Setup
+// Definimos el pin digital donde se conecta el sensor
+#define DHTPIN D24
+
+// Inicializamos el sensor DHT11
+DHT dht(DHTPIN, DHT11);
+
+// Se crean las variables para almacenar los datos
+float T = 0;  // Temperatura
+float H = 0;  // Humedad
+
 void setup() {
+  // Inicializamos el sensor DHT
+  dht.begin();
 
-    // En el setup no es necesario hacer nada más que inicializar la comunicación Serial
-    Serial.begin(9600);
+  pinMode(Led_rojo, OUTPUT);
+  pinMode(Led_verde, OUTPUT);
+  pinMode(Led_rojo_rgb, OUTPUT);
+  pinMode(Led_verde_rgb, OUTPUT);
 
+  digitalWrite(Led_rojo, LOW);
+  digitalWrite(Led_verde, LOW);
+  digitalWrite(Led_rojo_rgb, LOW);
+  digitalWrite(Led_verde_rgb, LOW);
+
+  // Inicializamos el bus serial
+  Serial.begin(9600);
 }
 
 void loop() {
-
-    int lectura_pulsador = analogRead(Escornabot.entrada_pulsadores);
-
-    // Comprobamos la lectura dentro del rango del boton S1
-    if ((Escornabot.S1_valor_minimo < lectura_pulsador) && (lectura_pulsador < Escornabot.S1_valor_maximo)) {
-        Serial.println("Se ha pulsado el boton S1.");
-        digitalWrite(Escornabot.LED_1, HIGH);
-        delay(500);
-        digitalWrite(Escornabot.LED_1, LOW);
+  // Si se detecta que el sensor dht esta conectado
+  if (!isnan(dht.readHumidity()) || !isnan(dht.readTemperature())) {
+    // Leer y almacenar temperatura
+    T = dht.readTemperature();
+    // Leer y almacenar humedad
+    H = dht.readHumidity();
+    // Si la temperatura esta por debajo de los 30ºC
+    if (T > 30) {
+      digitalWrite(Led_rojo, HIGH);
+      digitalWrite(Led_verde, HIGH);
     }
-
-    // Comprobamos la lectura dentro del rango del boton S2
-    else if ((Escornabot.S2_valor_minimo < lectura_pulsador) && (lectura_pulsador < Escornabot.S2_valor_maximo)) {
-        Serial.println("Se ha pulsado el boton S2.");
-        digitalWrite(Escornabot.LED_2, HIGH);
-        delay(500);
-        digitalWrite(Escornabot.LED_2, LOW);
+    if (T < 30 && T > 25) {
+      digitalWrite(Led_rojo, LOW);
+      digitalWrite(Led_verde, HIGH);
     }
-
-    // Comprobamos la lectura dentro del rango del boton S3
-    else if ((Escornabot.S3_valor_minimo < lectura_pulsador) && (lectura_pulsador < Escornabot.S3_valor_maximo)) {
-        Serial.println("Se ha pulsado el boton S3.");
-        digitalWrite(Escornabot.LED_3, HIGH);
-        delay(500);
-        digitalWrite(Escornabot.LED_3, LOW);
+    if (T < 25) {
+      digitalWrite(Led_rojo, LOW);
+      digitalWrite(Led_verde, LOW);
     }
-
-    // Comprobamos la lectura dentro del rango del boton S4
-    else if ((Escornabot.S4_valor_minimo < lectura_pulsador) && (lectura_pulsador < Escornabot.S4_valor_maximo)) {
-        Serial.println("Se ha pulsado el boton S4.");
-        digitalWrite(Escornabot.LED_4, HIGH);
-        delay(500);
-        digitalWrite(Escornabot.LED_4, LOW);
+    // Si la humedad esta por encima del 50 %
+    if (H > 75) {
+      digitalWrite(Led_rojo_rgb, HIGH);
+      digitalWrite(Led_verde_rgb, LOW);
     }
-
-    // Comprobamos la lectura dentro del rango del boton S5 
-    if ((Escornabot.S5_valor_minimo < lectura_pulsador) && (lectura_pulsador < Escornabot.S5_valor_maximo)) {
-        Serial.println("Se ha pulsado el boton S5.");
-        digitalWrite(Escornabot.LED_1, HIGH);
-        delay(500);
-        digitalWrite(Escornabot.LED_1, LOW);
-        digitalWrite(Escornabot.LED_2, HIGH);
-        delay(500);
-        digitalWrite(Escornabot.LED_2, LOW);
-        digitalWrite(Escornabot.LED_3, HIGH);
-        delay(500);
-        digitalWrite(Escornabot.LED_3, LOW);
-        digitalWrite(Escornabot.LED_4, HIGH);
-        delay(500);
-        digitalWrite(Escornabot.LED_4, LOW);
+    if(H < 75 && H > 50) {
+      digitalWrite(Led_rojo_rgb, LOW);
+      digitalWrite(Led_verde_rgb, HIGH);
     }
+    if(H < 50) {
+      digitalWrite(Led_rojo_rgb, LOW);
+      digitalWrite(Led_verde_rgb, LOW);
+    }
+    // Imprimir valores por el bus serial
+    Serial.print("Humedad relativa:  ");
+    Serial.print(H);
+    Serial.println(" %");
+    Serial.print("Temperatura:  ");
+    Serial.print(T);
+    Serial.println("  Cº");
 
+    // Esperar 5 segundos
+    delay(5000);
+  }
 }
+
+
+
