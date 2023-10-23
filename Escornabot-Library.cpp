@@ -147,6 +147,15 @@ void Escornabot::mover_robot (const int direccion)
 
     }
 
+    digitalWrite(this->motor_IN1_derecha, LOW);
+    digitalWrite(this->motor_IN1_izquierda, LOW);
+    digitalWrite(this->motor_IN2_derecha, LOW);
+    digitalWrite(this->motor_IN2_izquierda, LOW);
+    digitalWrite(this->motor_IN3_derecha, LOW);
+    digitalWrite(this->motor_IN3_izquierda, LOW);
+    digitalWrite(this->motor_IN4_derecha, LOW);
+    digitalWrite(this->motor_IN4_izquierda, LOW);
+
 }
 
 // Función privada para calcular los pasos necesarios para recorrer una distancia dada
