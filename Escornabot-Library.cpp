@@ -3,7 +3,7 @@
 */
 
 #include "Arduino.h"
-#include "Escornabot.h"
+#include "Escornabot-Library.h"
 
 // Constructor de la clase
 Escornabot::Escornabot (const int distancia_tapete)

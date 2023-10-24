@@ -4,7 +4,7 @@
 */
 
 // Incluimos la libreria con funciones y variables para Escornabot
-#include "Escornabot.h"
+#include "Escornabot-Library.h"
 
 /*
   Inicializamos la clase en la variable de nombre Escornabot.
