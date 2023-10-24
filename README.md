@@ -10,7 +10,7 @@ Puedes encontrar nuestro Kit de Escornabot Singularis y mucho más material de e
 Cuando tengas la librería instalada, incluye la librería al comienzo de tu sketch, antes del setup, con la siguiente línea:
 
 ```bash
-    #include "Escornabot.h"
+    #include "Escornabot-Library.h"
 ```
 
 ### Constructor
