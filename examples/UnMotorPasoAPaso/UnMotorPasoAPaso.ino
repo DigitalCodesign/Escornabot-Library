@@ -75,6 +75,11 @@ void loop() {
         }
     }
 
+    digitalWrite(IN1_drcha, LOW);
+    digitalWrite(IN2_drcha, LOW);
+    digitalWrite(IN3_drcha, LOW);
+    digitalWrite(IN4_drcha, LOW);
+
     delay(1000);
 
 }

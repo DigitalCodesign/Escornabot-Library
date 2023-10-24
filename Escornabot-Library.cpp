@@ -3,7 +3,7 @@
 */
 
 #include "Arduino.h"
-#include "Escornabot.h"
+#include "Escornabot-Library.h"
 
 // Constructor de la clase
 Escornabot::Escornabot (const int distancia_tapete)
@@ -146,6 +146,15 @@ void Escornabot::mover_robot (const int direccion)
             break;
 
     }
+
+    digitalWrite(this->motor_IN1_derecha, LOW);
+    digitalWrite(this->motor_IN1_izquierda, LOW);
+    digitalWrite(this->motor_IN2_derecha, LOW);
+    digitalWrite(this->motor_IN2_izquierda, LOW);
+    digitalWrite(this->motor_IN3_derecha, LOW);
+    digitalWrite(this->motor_IN3_izquierda, LOW);
+    digitalWrite(this->motor_IN4_derecha, LOW);
+    digitalWrite(this->motor_IN4_izquierda, LOW);
 
 }
 

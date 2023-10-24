@@ -17,7 +17,7 @@
 */
 
 // Incluimos la libreria con funciones y variables para Escornabot
-#include "Escornabot.h"
+#include "Escornabot-Library.h"
 
 // Definimos las dos constantes que usaremos
 // Maximo numero de movimientos a memorizar por el robot
