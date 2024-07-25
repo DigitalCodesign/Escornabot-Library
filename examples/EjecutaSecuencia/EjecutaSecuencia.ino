@@ -1,8 +1,3 @@
-#include <Adafruit_BusIO_Register.h>
-#include <Adafruit_I2CDevice.h>
-#include <Adafruit_I2CRegister.h>
-#include <Adafruit_SPIDevice.h>
-
 /*
     Versión completa del robot escornabot sin comunicación Bluetooth. Se
     selecciona la secuencia mediante los pulsadores y esta es ejecutada al
